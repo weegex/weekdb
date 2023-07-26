@@ -6,9 +6,6 @@ class ExistenceError(Exception):
     ...
 
 
-json.dump()
-
-
 class Collection:
     def __init__(self, name: str, data: list, connection) -> None:
         """
