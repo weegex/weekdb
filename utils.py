@@ -32,7 +32,7 @@ def str_to_int(string: str):
     return int("".join(letters))
 
 
-def binary_search_document(array: list, key: any):
+def binary_search_document(array: list, key: any) -> int:
     ids_array = []
 
     for index, item in enumerate(is_type(array, list)):
@@ -43,17 +43,17 @@ def binary_search_document(array: list, key: any):
 
         ids_array.append([id, index])
 
-    sorted_array = sorted(ids_array, key=lambda x: x[0])
+    sorted_array: list = sorted(ids_array, key=lambda x: x[0])
 
     if not isinstance(key, int):
         key = str_to_int(str(key))
 
     low = 0
-    high = len(sorted_array) - 1
+    high: int = len(sorted_array) - 1
 
     while low <= high:
 
-        middle = (low + high) // 2
+        middle: int = (low + high) // 2
         middle_item = sorted_array[middle][0]
 
         if middle_item == key:
@@ -61,7 +61,7 @@ def binary_search_document(array: list, key: any):
         elif middle_item > key:
             high = middle - 1
         else:
-            low = middle + 1
+            low: int = middle + 1
 
     raise SearchError("document does not exist")
 
